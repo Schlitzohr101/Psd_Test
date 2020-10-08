@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:psd_sdk/psd_sdk.dart';
+import 'dart:typed_data';
 import 'dart:io' as io;
 //import 'package:psd_sdk'
 
@@ -65,6 +66,8 @@ class _MyHomePageState extends State<MyHomePage> {
       print(e.toString());
     }
 
+    file.byteData.getUint32(0);
+
     final document = createDocument(file);
     if (document == null) {
       print("cannot create document!");
@@ -91,6 +94,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
+    print(readPSD());
     // This method is rerun every time setState is called, for instance as done
     // by the _incrementCounter method above.
     //
